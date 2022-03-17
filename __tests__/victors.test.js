@@ -23,4 +23,16 @@ describe('hand-of-resources routes', () => {
     const res = await request(app).post('/api/v1/victors').send(expected);
     expect(res.body).toEqual(expected);
   });
+
+  it('Gets all Victors in victors db', async () => {
+    const expected = {
+      id: expect.any(String),
+      firstName: expect.any(String),
+      lastName: expect.any(String),
+      middleName: expect.any(String),
+      knownFor: expect.any(String)
+    };
+    const res = await request(app).get('/api/v1/victors');
+    expect(res.body).toEqual(expected);
+  });
 });
