@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Victor = require('../lib/models/Victor');
 
 describe('hand-of-resources routes', () => {
   beforeEach(() => {
@@ -12,6 +13,8 @@ describe('hand-of-resources routes', () => {
     pool.end();
   });
 
+  // Testing that a POST request to '/api/v1/victors'
+  // successfully inserts a row
   it('Creates a Victor in victors db', async () => {
     const expected = {
       id: expect.any(String),
@@ -24,14 +27,10 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it('Gets all Victors in victors db', async () => {
-    const expected = {
-      id: expect.any(String),
-      firstName: expect.any(String),
-      lastName: expect.any(String),
-      middleName: expect.any(String),
-      knownFor: expect.any(String)
-    };
+  // Testing that a GET request to '/api/v1/victors'
+  // returns the same thing that is returned from Victor.getAll()
+  it('Gets all Victors from victors db', async () => {
+    const expected = await Victor.getAll();
     const res = await request(app).get('/api/v1/victors');
     expect(res.body).toEqual(expected);
   });
