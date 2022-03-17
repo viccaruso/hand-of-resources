@@ -12,5 +12,14 @@ describe('hand-of-resources routes', () => {
     pool.end();
   });
 
-
+  it('Creates a Victor in victors db', async () => {
+    const expected = {
+      firstName: 'Victor',
+      lastName: 'Caruso',
+      middleName: 'Dennis',
+      knownFor: 'TBD'
+    };
+    const res = await request(app).post('/api/v1/victors').send(expected);
+    expect(res.body).toEqual(expected);
+  });
 });
