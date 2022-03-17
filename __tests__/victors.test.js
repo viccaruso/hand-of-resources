@@ -14,6 +14,7 @@ describe('hand-of-resources routes', () => {
 
   it('Creates a Victor in victors db', async () => {
     const expected = {
+      id: expect.any(String),
       firstName: 'Victor',
       lastName: 'Caruso',
       middleName: 'Dennis',
