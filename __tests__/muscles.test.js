@@ -36,4 +36,11 @@ describe('hand-of-resources routes for muscle cars', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Finds and updates a muscle car in table by id', async () => {
+    const updates = { year: 1999 };
+    const expected = await MuscleCar.getById(1, updates);
+    const res = await request(app).patch('/api/v1/musclecars/1');
+    expect(res.body).toEqual(expected);
+  });
+
 });
