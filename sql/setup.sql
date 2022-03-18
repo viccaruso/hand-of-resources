@@ -2,7 +2,6 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS victors;
 
-
 CREATE TABLE victors (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, -- BIGINT RETURNED AS STRING --
   first_name TEXT NOT NULL,
@@ -18,4 +17,22 @@ VALUES
   ('Viktor', 'Frankl', 'Emil', 'Austrian neurologist, psychiatrist, philosopher, author, and Holocaust survivor. Best known for being the founder of logotherapy and for being the author of Man''s searchfor meaning'),
   ('Victor', 'Garber', 'Joseph', 'Canadian-American actor and singer. Best known for his role as Jack Bristow in the drama series Alias which aired from 2001-2006.'),
   ('Victor', 'Fleming', 'Lonzo', 'American film director, cinematographer, and producer. Best known for his films Gone with the Wind and The Wizard of Oz.');
+
+DROP TABLE IF EXISTS muscle_cars;
+
+CREATE TABLE muscle_cars (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  make TEXT NOT NULL,
+  model TEXT NOT NULL,
+  year INT NOT NULL
+);
+
+INSERT INTO
+  muscle_cars (make, model, year)
+VALUES
+  ('Pontiac', 'GTO', 1964),
+  ('Chevrolet', 'Chevelle SS 454', 1970),
+  ('Plymouth', 'Road Runner Superbird', 1970),
+  ('Chevrolet', 'Camaro Z/28', 1967),
+  ('Shelby', 'Mustang GT-350', 1965);
 
