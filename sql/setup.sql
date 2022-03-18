@@ -52,3 +52,19 @@ VALUES
   ('The Wise Man''s Fear', 'Patrick Rothfuss', 994),
   ('The Giver', 'Lois Lowry', 208);
 
+DROP TABLE IF EXISTS games;
+
+CREATE TABLE games (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  platform TEXT NOT NULL,
+  genre TEXT NOT NULL,
+  has_played BOOLEAN NOT NULL 
+);
+
+INSERT INTO 
+  games (title, platform, genre, has_played)
+VALUES 
+  ('Elden Ring', 'PC', 'Action RPG', TRUE),
+  ('Bioshock', 'PC', 'First-person shooter RPG', FALSE),
+  ('Cuphead', 'PC', 'Run and gun', TRUE);
