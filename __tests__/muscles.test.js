@@ -43,4 +43,10 @@ describe('hand-of-resources routes for muscle cars', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Deletes a muscle car after finding it by id', async () => {
+    const expected = await MuscleCar.getById(1);
+    const res = await request(app).delete(`/api/v1/musclecars/${expected.id}`);
+    expect(res.body).toEqual(expected);
+  })
+
 });
