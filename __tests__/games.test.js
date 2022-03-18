@@ -24,8 +24,12 @@ describe('hand-of-resources routes for muscle cars', () => {
     };
     const res = await request(app).post('/api/v1/games').send(expected);
     expect(res.body).toEqual(expected);
-  }
-  
-  );
+  });
+
+  it('Gets a list of all games in games table', async () => {
+    const expected = await Game.getAll();
+    const res = await request(app).get('/api/v1/games');
+    expect(res.body).toEqual(expected);
+  });
 });
 
