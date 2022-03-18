@@ -36,3 +36,19 @@ VALUES
   ('Chevrolet', 'Camaro Z/28', 1967),
   ('Shelby', 'Mustang GT-350', 1965);
 
+DROP TABLE IF EXISTS books;
+
+CREATE TABLE books (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  author TEXT NOT NULL,
+  pages SMALLINT
+);
+
+INSERT INTO 
+  books (title, author, pages)
+VALUES
+  ('The Name of the Wind', 'Patrick Rothfuss', 662),
+  ('The Wise Man''s Fear', 'Patrick Rothfuss', 994),
+  ('The Giver', 'Lois Lowry', 208);
+
