@@ -12,4 +12,15 @@ describe('hand-of-resources routes for muscle cars', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('Creates a Book and adds it to books db', async () => {
+    const expected = {
+      id: expect.any(String),
+      title: 'Dune',
+      author: 'Frank Herbert',
+      pages: 658
+    };
+    const res = await request(app).post('/api/v1/books').send(expected);
+    expect(res.body).toEqual(expected);
+  });
 });
