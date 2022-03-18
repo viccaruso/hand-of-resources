@@ -20,7 +20,7 @@ describe('hand-of-resources routes for muscle cars', () => {
       title: 'Horizon: Zero Dawn',
       platform: 'PC',
       genre: 'Action RPG',
-      has_played: false
+      hasPlayed: false
     };
     const res = await request(app).post('/api/v1/games').send(expected);
     expect(res.body).toEqual(expected);
