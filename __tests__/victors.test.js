@@ -45,10 +45,21 @@ describe('hand-of-resources routes', () => {
 
   // Testing that a PATCH request to '/api/v1/victors/1'
   // updates and returns the updated record from Victor.updateById(1)
-  it('Updates a Victor from victors table base on id', async () => {
+  it('Updates a Victor from victors table based on id', async () => {
     const updates = { knownFor: 'Software Engineer in the PNW.' };
     const expected = await Victor.updateById(1, updates);
     const res = await request(app).patch('/api/v1/victors/1');
+    expect(res.body).toEqual(expected);
+  });
+
+  // Testing that a DELETE request to '/api/v1/victors/1'
+  // deletes and returns the deleted record from calling Victor.DeleteById(1)
+  it('Deletes a Victor from victors table based on id', async () => {
+    // Go get a victor
+    const expected = await Victor.getById(1);
+    // Delete the victor
+    const res = await request(app).delete(`/api/v1/victors/${expected.id}`);// <- id from the victor you got already
+    // Check to make sure the victor you got earlier is the same as the one returned by delete
     expect(res.body).toEqual(expected);
   });
 });
