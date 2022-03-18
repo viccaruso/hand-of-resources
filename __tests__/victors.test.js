@@ -42,4 +42,13 @@ describe('hand-of-resources routes', () => {
     const res = await request(app).get('/api/v1/victors/1');
     expect(res.body).toEqual(expected);
   });
+
+  // Testing that a PATCH request to '/api/v1/victors/1'
+  // updates and returns the updated record from Victor.updateById(1)
+  it('Updates a Victor from victors table base on id', async () => {
+    const updates = { knownFor: 'Software Engineer in the PNW.' };
+    const expected = await Victor.updateById(5, updates);
+    const res = await request(app).patch('/api/v1/victors/5');
+    expect(res.body).toEqual(expected);
+  });
 });
