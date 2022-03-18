@@ -24,4 +24,10 @@ describe('hand-of-resources routes for muscle cars', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Gets all muscle cars from the database', async () => {
+    const expected = await MuscleCar.getAll();
+    const res = await request(app).get('/api/v1/musclecars');
+    expect(res.body).toEqual(expected);
+  });
+
 });
