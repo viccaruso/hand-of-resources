@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Victor = require('../lib/models/Victor');
 
-describe('hand-of-resources routes', () => {
+describe('hand-of-resources routes for victors', () => {
   beforeEach(() => {
     return setup(pool);
   });
