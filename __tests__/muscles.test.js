@@ -47,6 +47,6 @@ describe('hand-of-resources routes for muscle cars', () => {
     const expected = await MuscleCar.getById(1);
     const res = await request(app).delete(`/api/v1/musclecars/${expected.id}`);
     expect(res.body).toEqual(expected);
-  })
+  });
 
 });
