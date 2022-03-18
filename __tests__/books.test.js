@@ -23,5 +23,10 @@ describe('hand-of-resources routes for muscle cars', () => {
     const res = await request(app).post('/api/v1/books').send(expected);
     expect(res.body).toEqual(expected);
   });
-  
+
+  it('Gets all books from table', async () => {
+    const expected = await Book.getAllBooks();
+    const res = await request(app).get('/api/v1/books').send(expected);
+    expect(res.body).toEqual(expected);
+  });
 });
