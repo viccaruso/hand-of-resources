@@ -30,4 +30,10 @@ describe('hand-of-resources routes for muscle cars', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Gets a specific muscle car by id', async () => {
+    const expected = await MuscleCar.getById(1);
+    const res = await request(app).get('/api/v1/musclecars/1');
+    expect(res.body).toEqual(expected);
+  });
+
 });
