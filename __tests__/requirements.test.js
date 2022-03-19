@@ -25,4 +25,10 @@ describe('hand-of-resources routes for requirements', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Gets all requirements from requirements db', async () => {
+    const expected = await Requirements.getAll();
+    const res = await request(app).get('/api/v1/sysreqs');
+    expect(res.body).toEqual(expected);
+  });
+
 });
