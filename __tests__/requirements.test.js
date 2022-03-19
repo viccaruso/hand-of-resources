@@ -37,4 +37,11 @@ describe('hand-of-resources routes for system_requirements', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Updates a requirement from system_requirements table based on id', async () => {
+    const updates = { os: 'Windows 10, 64-bit' };
+    const expected = await Requirements.updateById(1, updates);
+    const res = await request(app).patch('/api/v1/sysreqs/1');
+    expect(res.body).toEqual(expected);
+  });
+
 });
