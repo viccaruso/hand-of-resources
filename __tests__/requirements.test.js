@@ -44,4 +44,10 @@ describe('hand-of-resources routes for system_requirements', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Deletes a requirement from system_requirements table based on id', async () => {
+    const expected = await Requirements.getById(1);
+    const res = await request(app).delete(`/api/v1/victors/${expected.id}`);
+    expect(res.body).toEqual(expected);
+  });
+
 });
