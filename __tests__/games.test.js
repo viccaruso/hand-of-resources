@@ -36,6 +36,13 @@ describe('hand-of-resources routes for muscle cars', () => {
     const res = await request(app).get('/api/v1/games/1');
     expect(res.body).toEqual(expected);
   });
-  
+
+  it('Updates a game in table by id', async () => {
+    const updates = { genre: 'MMORPG' };
+    const expected = await Game.updateById(1, updates);
+    const res = await request(app).patch(`/api/v1/games/${expected.id}`);
+    expect(res.body).toEqual(expected);
+  });
+
 });
 
