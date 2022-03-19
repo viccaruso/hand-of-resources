@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Book = require('../lib/models/Book');
 
-describe('hand-of-resources routes for muscle cars', () => {
+describe('hand-of-resources routes for books', () => {
   beforeEach(() => {
     return setup(pool);
   });

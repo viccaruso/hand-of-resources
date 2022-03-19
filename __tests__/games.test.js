@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Game = require('../lib/models/Game');
 
-describe('hand-of-resources routes for muscle cars', () => {
+describe('hand-of-resources routes for games', () => {
   beforeEach(() => {
     return setup(pool);
   });

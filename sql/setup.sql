@@ -68,3 +68,20 @@ VALUES
   ('Elden Ring', 'PC', 'Action RPG', TRUE),
   ('Bioshock', 'PC', 'First-person shooter RPG', FALSE),
   ('Cuphead', 'PC', 'Run and gun', TRUE);
+
+DROP TABLE IF EXISTS system_requirements;
+
+CREATE TABLE system_requirements (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  cpu TEXT NOT NULL,
+  ram TEXT NOT NULL,
+  gpu TEXT NOT NULL,
+  os TEXT NOT NULL
+);
+
+INSERT INTO 
+  system_requirements (cpu, ram, gpu, os)
+VALUES
+  ('Intel Core i5-8400 or AMD Ryzen 3 3300X', '12 GB RAM', 'NVIDIA GeForce GTX 1060, 3 GB or AMD Radeon RX 580, 4 GB', 'Windows 10 (64-bit)'),
+  ('Intel® Core™ i5-3470 or AMD Ryzen™ 3 1200', '8 GB RAM', 'GeForce GTX 1050 4 GB or AMD Radeon™ RX 560 4 GB', 'Windows® 10, 64-bit'),
+  ('Intel i5/Ryzen 5 series', '8 GB RAM', 'Nvidia GeForce GTX 1660 Ti/AMD RX 5600-XT', 'Windows 7 64-bit');
