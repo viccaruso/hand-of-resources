@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Requirements = require('../lib/models/Requirements');
 
-describe('hand-of-resources routes for requirements', () => {
+describe('hand-of-resources routes for system_requirements', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -13,7 +13,7 @@ describe('hand-of-resources routes for requirements', () => {
     pool.end();
   });
 
-  it('Creates a requirements row in requirements db', async () => {
+  it('Creates a requirements row in system_requirements db', async () => {
     const expected = {
       id: expect.any(String),
       cpu: 'Intel Core i3-9100 / AMD Ryzen 3 2300X',
@@ -28,6 +28,12 @@ describe('hand-of-resources routes for requirements', () => {
   it('Gets all requirements from requirements db', async () => {
     const expected = await Requirements.getAll();
     const res = await request(app).get('/api/v1/sysreqs');
+    expect(res.body).toEqual(expected);
+  });
+
+  it('Gets a requirement from system_requirements table based on id', async () => {
+    const expected = await Requirements.getById(1);
+    const res = await request(app).get('/api/v1/sysreqs/1');
     expect(res.body).toEqual(expected);
   });
 
